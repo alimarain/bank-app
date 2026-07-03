@@ -186,22 +186,25 @@ class OnboardingOne extends StatelessWidget {
       ),
     ),
   );
-
   Widget _buildLangBtn(String label, bool active, VoidCallback onTap) =>
       GestureDetector(
         onTap: onTap,
-        child: Container(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 800),
+          curve: Curves.easeInOut,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           decoration: BoxDecoration(
             color: active ? AppColors.primary : Colors.transparent,
             borderRadius: AppRadius.xlRadius,
           ),
-          child: Text(
-            label,
+          child: AnimatedDefaultTextStyle(
+            duration: const Duration(milliseconds: 800),
+            curve: Curves.easeInOut,
             style: AppTextStyles.button.copyWith(
               color: active ? AppColors.white : AppColors.black,
               fontSize: 13,
             ),
+            child: Text(label),
           ),
         ),
       );
